@@ -16,11 +16,11 @@ const Page = () => {
     if (!value) return;
 
     const data = await searchWords(value);
-    setResult(data);
+    if (data) setResult(data);
   };
 
   const noteList = result.map((n) => {
-    const [character, , , zhuyin, meaning] = n.flds.split("\u001f");
+    const [character, , , zhuyin, meaning] = n.flds!.split("\u001f");
 
     return {
       id: n.id,

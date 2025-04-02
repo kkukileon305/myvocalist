@@ -9,16 +9,8 @@ import WindowChecker from "@/app/WindowChecker";
 
 export interface Type {
   id: number;
-  guid: string;
-  mid: number;
-  mod: number;
-  usn: number;
-  tags: string;
-  flds: string;
-  sfld: string;
-  csum: number;
-  flags: number;
-  data: string;
+  created_at?: string;
+  flds: string | null;
 }
 
 export type Word = {
@@ -54,7 +46,7 @@ const Page = async ({
   const notes = await getPaginatedApkgData(page);
 
   const noteList = notes.map((n) => {
-    const [character, , , zhuyin, meaning] = n.flds.split("\u001f");
+    const [character, , , zhuyin, meaning] = n.flds!.split("\u001f");
 
     return {
       id: n.id,
