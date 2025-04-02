@@ -1,11 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 const ReturnBeforePage = () => {
   const [isClicked, setIsClicked] = useState(false);
   const beforePage = parseInt(localStorage.getItem("beforePage") || "1");
+
+  useEffect(() => {
+    if (!isClicked) {
+      document.body.style.overflow = "hidden"; // 스크롤 막기
+    } else {
+      document.body.style.overflow = ""; // 스크롤 허용
+    }
+
+    return () => {
+      document.body.style.overflow = ""; // 클린업 함수 (컴포넌트 언마운트 시 초기화)
+    };
+  }, [isClicked]);
 
   if (isClicked) return <></>;
 

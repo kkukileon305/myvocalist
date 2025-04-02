@@ -4,6 +4,7 @@ import React, { FormEventHandler, useState } from "react";
 import View from "@/app/View";
 import { Type } from "@/app/list/page";
 import { searchWords } from "@/app/actions";
+import MyWords from "@/app/mywords/MyWords";
 
 const Search = () => {
   const [loading, setLoading] = useState(false);
@@ -12,9 +13,8 @@ const Search = () => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
     if (!value) return;
+    setLoading(true);
 
     const data = await searchWords(value);
     if (data) setResult(data);
@@ -70,6 +70,10 @@ const Search = () => {
             </div>
           ))}
         </div>
+
+        <p className="text-center">❤️❤️❤️❤️</p>
+
+        <MyWords />
       </div>
     </div>
   );

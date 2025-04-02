@@ -2,10 +2,9 @@ import React from "react";
 import Database from "better-sqlite3";
 import path from "path";
 import View from "@/app/View";
-import Link from "next/link";
-import MovePage from "@/app/list/MovePage";
 import ReturnBeforePage from "@/app/list/ReturnBeforePage";
 import WindowChecker from "@/app/WindowChecker";
+import Navigator from "@/app/list/Navigator";
 
 export interface Type {
   id: number;
@@ -82,21 +81,7 @@ const Page = async ({
         <ReturnBeforePage />
       </WindowChecker>
 
-      <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
-        <Link href="/" className="block shadow bg-blue-300 p-2 rounded-full">
-          🏠
-        </Link>
-
-        {page !== 1 && <MovePage page={page} isNext={false} />}
-        {page < 733 && <MovePage page={page} isNext={true} />}
-
-        <Link
-          href="/mywords"
-          className="block shadow bg-blue-300 p-2 rounded-full"
-        >
-          ❤️
-        </Link>
-      </div>
+      <Navigator page={page} />
     </>
   );
 };
