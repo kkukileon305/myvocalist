@@ -3,6 +3,9 @@ import Database from "better-sqlite3";
 import path from "path";
 import View from "@/app/View";
 import Link from "next/link";
+import MovePage from "@/app/MovePage";
+import ReturnBeforePage from "@/app/ReturnBeforePage";
+import WindowChecker from "@/app/WindowChecker";
 
 export interface Type {
   id: number;
@@ -82,30 +85,14 @@ const Page = async ({
           ))}
         </div>
       </div>
-      <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
-        {page !== 1 && (
-          <Link
-            href={`?page=${page - 1}`}
-            className="bg-blue-300 shadow w-10 h-10 flex justify-center items-center font-extrabold p-2 rounded-full"
-          >
-            {"<"}
-          </Link>
-        )}
-        {page < 733 && (
-          <Link
-            href={`?page=${page + 1}`}
-            className="bg-blue-300 shadow w-10 h-10 flex justify-center items-center font-extrabold p-2 rounded-full"
-          >
-            {">"}
-          </Link>
-        )}
 
-        <Link
-          href="/search"
-          className="block shadow bg-blue-300 p-2 rounded-full"
-        >
-          🔍
-        </Link>
+      <WindowChecker>
+        <ReturnBeforePage />
+      </WindowChecker>
+
+      <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
+        {page !== 1 && <MovePage page={page} isNext={false} />}
+        {page < 733 && <MovePage page={page} isNext={true} />}
 
         <Link
           href="/mywords"
