@@ -5,12 +5,8 @@ import { getWordByKeyword } from "@/app/search/actions";
 import { Type } from "@/app/page";
 import View from "@/app/View";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 const Page = () => {
-  const params = useSearchParams();
-  const page = parseInt(params.get("page") || "1", 10);
-
   const [value, setValue] = useState("");
   const [result, setResult] = useState<Type[]>([]);
 

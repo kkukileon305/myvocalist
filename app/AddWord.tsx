@@ -2,15 +2,12 @@
 
 import { Word } from "@/app/page";
 import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 type AddWordProps = {
   word: Word;
 };
 
 const AddWord = ({ word }: AddWordProps) => {
-  const pathname = usePathname();
-
   const [savedWords, setSavedWords] = useState<string[]>([]);
 
   const loadWords = () => {
