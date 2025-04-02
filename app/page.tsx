@@ -91,6 +91,13 @@ const Page = async ({
       </WindowChecker>
 
       <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
+        <Link
+          href="/search"
+          className="block shadow bg-blue-300 p-2 rounded-full"
+        >
+          🔍
+        </Link>
+
         {page !== 1 && <MovePage page={page} isNext={false} />}
         {page < 733 && <MovePage page={page} isNext={true} />}
 
