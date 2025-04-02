@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import View from "@/app/View";
-import { Word } from "@/app/page";
 import Link from "next/link";
+import { Word } from "@/app/list/page";
 
 const Page = () => {
   const [storedData, setStoredData] = useState<string>("[]");
@@ -50,7 +50,7 @@ const Page = () => {
         ))}
       </div>
 
-      <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
+      <div className="w-full fixed justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
         <Link href="/" className="block shadow bg-blue-300 p-2 rounded-full">
           🏠
         </Link>

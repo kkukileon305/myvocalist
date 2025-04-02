@@ -8,7 +8,7 @@ export async function searchWords(word: string) {
   const { data } = await supabase
     .from("vocal")
     .select("*")
-    .like("flds", `%${word}%`);
+    .like("flds", `%${word.toLowerCase()}%`);
 
   return data;
 }

@@ -15,7 +15,7 @@ const MovePage = ({ page, isNext }: MovePageProps) => {
 
   return (
     <Link
-      href={`?page=${isNext ? page + 1 : page - 1}`}
+      href={`/list?page=${isNext ? page + 1 : page - 1}`}
       onClick={onClick}
       className="bg-blue-300 shadow w-10 h-10 flex justify-center items-center font-extrabold p-2 rounded-full"
     >

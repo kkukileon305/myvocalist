@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Word } from "@/app/page";
 import WindowChecker from "@/app/WindowChecker";
-import AddWord from "@/app/AddWord";
+import AddWord from "@/app/list/AddWord";
+import { Word } from "@/app/list/page";
 
 type ViewProps = {
   word: Word;

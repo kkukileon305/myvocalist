@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import React, { FormEventHandler, useState } from "react";
-import { searchWords } from "@/app/search/actions";
-import { Type } from "@/app/page";
 import View from "@/app/View";
+import { Type } from "@/app/list/page";
+import { searchWords } from "@/app/actions";
 
-const Page = () => {
+const Search = () => {
   const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
   const [result, setResult] = useState<Type[]>([]);
@@ -35,7 +34,7 @@ const Page = () => {
   });
 
   return (
-    <>
+    <div>
       <div className="max-w-4xl mx-auto">
         <form onSubmit={onSubmit} className="flex mb-4 p-2">
           <input
@@ -72,14 +71,8 @@ const Page = () => {
           ))}
         </div>
       </div>
-
-      <div className="w-full sticky justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
-        <Link href="/" className="block shadow bg-blue-300 p-2 rounded-full">
-          🏠
-        </Link>
-      </div>
-    </>
+    </div>
   );
 };
 
-export default Page;
+export default Search;

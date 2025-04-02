@@ -1,7 +1,7 @@
 "use client";
 
-import { Word } from "@/app/page";
 import React, { useEffect, useState } from "react";
+import { Word } from "@/app/list/page";
 
 type AddWordProps = {
   word: Word;
