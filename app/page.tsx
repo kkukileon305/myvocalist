@@ -32,7 +32,7 @@ async function getPaginatedApkgData(
   page: number,
   pageSize: number = 10,
 ): Promise<Type[]> {
-  const apkgPath = path.join(process.cwd(), "collection.anki2");
+  const apkgPath = path.join(process.cwd(), "public", "collection.anki2");
   const db = new Database(apkgPath, { readonly: true });
 
   // OFFSET을 사용하여 데이터 가져오기

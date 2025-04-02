@@ -6,7 +6,7 @@ import fs from "fs";
 import { Type } from "@/app/page";
 
 export async function searchWords(word: string) {
-  const dbPath = path.join(process.cwd(), "collection.anki2");
+  const dbPath = path.join(process.cwd(), "public", "collection.anki2");
 
   // 파일이 존재하는지 확인
   if (!fs.existsSync(dbPath)) {
