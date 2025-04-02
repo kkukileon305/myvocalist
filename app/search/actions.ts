@@ -5,7 +5,7 @@ import Database from "better-sqlite3";
 import { Type } from "@/app/page";
 
 export async function getWordByKeyword(word: string) {
-  const apkgPath = path.join(process.cwd(), "public", "collection.anki2");
+  const apkgPath = path.join(process.cwd(), "collection.anki2");
   const db = new Database(apkgPath, { readonly: true });
 
   const rows = db
