@@ -7,16 +7,20 @@ import { Type } from "@/app/page";
 import View from "@/app/View";
 
 const Page = () => {
+  const [loading, setLoading] = useState(false);
   const [value, setValue] = useState("");
   const [result, setResult] = useState<Type[]>([]);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!value) return;
 
     const data = await searchWords(value);
     if (data) setResult(data);
+
+    setLoading(false);
   };
 
   const noteList = result.map((n) => {
@@ -36,11 +40,16 @@ const Page = () => {
         <form onSubmit={onSubmit} className="flex mb-4 p-2">
           <input
             type="text"
-            className="outline-none p-2 bg-blue-200 rounded-md w-full"
+            className="outline-none p-2 bg-blue-200 rounded-md w-full disabled:bg-gray-400"
             onChange={(e) => setValue(e.target.value)}
             placeholder="中文搜尋..."
+            disabled={loading}
           />
-          <button className="w-10 h-10 cursor-pointer" type="submit">
+          <button
+            className="w-10 h-10 cursor-pointer"
+            type="submit"
+            disabled={loading}
+          >
             🔍
           </button>
         </form>
