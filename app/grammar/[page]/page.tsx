@@ -1,6 +1,5 @@
 import "./test.css";
 import { datas } from "@/app/grammar/[page]/data";
-import Link from "next/link";
 import React from "react";
 import Navigator from "@/app/grammar/[page]/Navigator";
 
