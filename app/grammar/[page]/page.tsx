@@ -25,7 +25,7 @@ export default async function Page({
       <div className="max-w-5xl w-full mx-auto p-2">
         {contents.map((content, i) => (
           <div
-            className="w-full mb-4 bg-white rounded-xl shadow-md p-4"
+            className="w-full mb-4 bg-white border-b p-4"
             key={i}
             dangerouslySetInnerHTML={{
               __html: content,
