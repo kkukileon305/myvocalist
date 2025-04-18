@@ -21,11 +21,10 @@ export default async function Page({
 
   return (
     <>
-      <div className="w-full fixed justify-end bottom-4 right-0 z-30 flex pr-4 gap-4"></div>
-      <div className="max-w-5xl w-full mx-auto p-2">
+      <div className="max-w-5xl w-full mx-auto">
         {contents.map((content, i) => (
           <div
-            className="w-full mb-4 bg-white border-b p-4"
+            className="w-full mb-4 bg-white border-b pb-4"
             key={i}
             dangerouslySetInnerHTML={{
               __html: content,
