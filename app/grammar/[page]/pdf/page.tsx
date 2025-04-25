@@ -1,6 +1,5 @@
 import "../test.css";
 import { datas } from "@/app/grammar/[page]/data";
-import Navigator from "@/app/grammar/[page]/Navigator";
 import React from "react";
 
 function getArrayChunkFromArray(n: number) {
