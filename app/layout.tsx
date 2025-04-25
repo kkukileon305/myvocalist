@@ -2,8 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "中文繁體詞彙",
-  description: "中文繁體詞彙",
+  title: "學習中文繁體 - 번체중국어학습",
+  description: "대만에서 사용하는 번체중국어학습",
+  openGraph: {
+    title: "學習中文繁體 - 번체중국어학습",
+    description: "대만에서 사용하는 번체중국어학습",
+    url: "https://myvocalist.vercel.app/",
+  },
 };
 
 export default function RootLayout({
