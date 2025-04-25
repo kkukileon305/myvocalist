@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     description: "대만에서 사용하는 번체중국어학습",
     url: "https://myvocalist.vercel.app/",
   },
+  verification: {
+    google: "XerBlSKLMWnfZ8TNg719AWrXkc5bnc_tR2s_7UDTdpk",
+  },
 };
 
 export default function RootLayout({
