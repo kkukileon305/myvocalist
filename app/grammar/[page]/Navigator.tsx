@@ -3,6 +3,7 @@
 import React, { FormEventHandler, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useScrollUp } from "@/utils/hooks";
 
 type NavigatorProps = { page: number };
 
@@ -10,6 +11,7 @@ const Navigator = ({ page }: NavigatorProps) => {
   const [modal, setModal] = useState(false);
   const [value, setValue] = useState("");
   const router = useRouter();
+  const isScrollUp = useScrollUp();
 
   useEffect(() => {
     if (modal) {
@@ -29,6 +31,11 @@ const Navigator = ({ page }: NavigatorProps) => {
 
     router.push(`/grammar/${value}`);
     setModal(false);
+  };
+
+  const handleCopy = async () => {
+    const path = window.location.href;
+    await navigator.clipboard.writeText(path + "/pdf");
   };
 
   return (
@@ -56,22 +63,24 @@ const Navigator = ({ page }: NavigatorProps) => {
         </div>
       )}
 
-      <div className="w-full fixed justify-end bottom-4 right-0 z-30 flex pr-4 gap-4">
+      <div
+        className={`w-full sticky bg-blue-300 p-2 top-0 flex justify-center right-0 z-30 pr-4 gap-4 transition-all ${isScrollUp ? "translate-y-0" : "-translate-y-full"}`}
+      >
         <div
-          className="block shadow bg-blue-300 p-2 rounded-full cursor-pointer"
+          className="block bg-white p-2 rounded-full cursor-pointer"
           onClick={() => setModal(true)}
         >
           📤
         </div>
 
-        <Link href="/" className="block shadow bg-blue-300 p-2 rounded-full">
+        <Link href="/" className="block bg-white p-2 rounded-full">
           🏠
         </Link>
 
         {Number(page) - 1 > 0 && (
           <Link
             href={`/grammar/${Number(page) - 1}`}
-            className="block shadow bg-blue-300 p-2 rounded-full"
+            className="block bg-white p-2 rounded-full"
           >
             {"<"}
           </Link>
@@ -79,10 +88,17 @@ const Navigator = ({ page }: NavigatorProps) => {
 
         <Link
           href={`/grammar/${Number(page) + 1}`}
-          className="block shadow bg-blue-300 p-2 rounded-full"
+          className="block bg-white p-2 rounded-full"
         >
           {">"}
         </Link>
+
+        <button
+          onClick={handleCopy}
+          className="font-extrabold bg-white rounded-full px-2 cursor-pointer"
+        >
+          PDF
+        </button>
       </div>
     </>
   );
