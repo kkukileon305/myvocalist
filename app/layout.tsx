@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     url: "https://myvocalist.vercel.app/",
   },
   verification: {
-    google: "XerBlSKLMWnfZ8TNg719AWrXkc5bnc_tR2s_7UDTdpk",
+    google: "0P9x1zDK3FoskGyNI1lehkUYmIlsMwxMQf06chuxTuQ",
   },
 };
 
