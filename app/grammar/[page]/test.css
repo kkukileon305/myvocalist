@@ -1338,3 +1338,7 @@ figure[data-ke-type='contentSearch'] div.cs-image button {
 	min-width: 80px;
 	justify-content: flex-end;
 }
+
+table:first-of-type > tbody > tr > td:nth-of-type(3), table:first-of-type > tbody > tr > td:nth-of-type(4) {
+	display: none;
+}
