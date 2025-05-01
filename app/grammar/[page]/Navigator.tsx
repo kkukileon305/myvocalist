@@ -66,16 +66,15 @@ const Navigator = ({ page }: NavigatorProps) => {
       <div
         className={`w-full sticky bg-blue-300 p-2 top-0 flex justify-center right-0 z-30 pr-4 gap-4 transition-all ${isScrollUp ? "translate-y-0" : "-translate-y-full"}`}
       >
+        <Link href="/" className="block bg-white p-2 rounded-full">
+          🏠
+        </Link>
         <div
           className="block bg-white p-2 rounded-full cursor-pointer"
           onClick={() => setModal(true)}
         >
           📤
         </div>
-
-        <Link href="/" className="block bg-white p-2 rounded-full">
-          🏠
-        </Link>
 
         {Number(page) - 1 > 0 && (
           <Link

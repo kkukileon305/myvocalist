@@ -1,4 +1,4 @@
-import "../test.css";
+import "../grammar.css";
 import { datas } from "@/app/grammar/[page]/data";
 import React from "react";
 

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,6 +14,7 @@
     "@types/cheerio": "^0.22.35",
     "better-sqlite3": "^11.9.1",
     "cheerio": "^1.0.0",
+    "motion": "^12.9.2",
     "next": "15.2.4",
     "prettier": "^3.5.3",
     "react": "^19.0.0",

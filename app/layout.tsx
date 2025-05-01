@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import localFont from "next/font/local";
+
+const font = localFont({
+  src: "./NotoSansTC-Medium.ttf",
+});
 
 export const metadata: Metadata = {
-  title: "대만중국어학습",
-  description: "대만에서 사용하는 대만중국어학습",
+  title: "함께 배우는 대만중국어 - 臺灣的正體中文",
+  description: "대만식 전통 중국어를 배워보아요",
   openGraph: {
-    title: "대만중국어학습",
-    description: "대만에서 사용하는 대만중국어학습",
+    title: "함께 배우는 대만중국어 - 臺灣的正體中文",
+    description: "대만식 전통 중국어를 배워보아요",
     url: "https://myvocalist.vercel.app/",
   },
   verification: {
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
-      <body className={`min-h-lvh bg-white`}>{children}</body>
+      <body className={`min-h-lvh bg-white ${font.className}`}>{children}</body>
     </html>
   );
 }

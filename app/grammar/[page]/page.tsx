@@ -1,7 +1,7 @@
-import "./test.css";
 import { datas } from "@/app/grammar/[page]/data";
 import React from "react";
 import Navigator from "@/app/grammar/[page]/Navigator";
+import LoadStyle from "@/app/grammar/[page]/LoadStyle";
 
 function getArrayChunkFromArray(n: number) {
   const chunkSize = 30;
@@ -21,6 +21,7 @@ export default async function Page({
 
   return (
     <>
+      <LoadStyle />
       <Navigator page={Number(page)} />
       <div className="max-w-5xl w-full mx-auto p-2">
         {contents.map((content, i) => (
