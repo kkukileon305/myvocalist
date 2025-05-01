@@ -51,7 +51,7 @@ const Page = async () => {
   return (
     <>
       <header className="sticky top-0 border-b border-gray-300 bg-white z-30">
-        <div className="max-w-4xl mx-auto p-4 flex justify-center gap-2 text-white">
+        <div className="max-w-6xl mx-auto p-4 flex justify-center gap-2 text-white">
           <Link
             href="/grammar/1"
             className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full font-extrabold"
@@ -70,12 +70,12 @@ const Page = async () => {
             href="/mywords"
             className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full"
           >
-            個人詞彙
+            我的詞彙
           </Link>
         </div>
       </header>
       <section className="bg-blue-300">
-        <div className="max-w-4xl mx-auto px-2 py-12">
+        <div className="max-w-6xl mx-auto px-2 py-12">
           <div className="min-h-[80lvh] flex flex-col md:flex-row justify-between items-center">
             <div>
               <motion.h1
@@ -135,7 +135,7 @@ const Page = async () => {
                     type: "tween",
                     duration: 1,
                   }}
-                  className={`w-[300px] min-h-[120px] p-2 bg-white rounded-xl shadow-lg ${index % 2 !== 0 ? "ml-auto" : "mr-auto"}`}
+                  className={`w-[300px] ${index !== 2 ? "min-h-[120px]" : "min-h-[180px]"} p-2 bg-white rounded-xl shadow-lg ${index % 2 !== 0 ? "ml-auto" : "mr-auto"} ${index === 1 ? "-translate-y-10" : ""} ${index === 0 ? "translate-x-4" : ""}`}
                 >
                   {d}
                 </motion.div>
@@ -145,7 +145,7 @@ const Page = async () => {
         </div>
       </section>
       <section className="overflow-hidden">
-        <div className="max-w-4xl mx-auto px-2 py-24 flex flex-col items-center md:items-start">
+        <div className="max-w-6xl mx-auto px-2 py-24 flex flex-col items-center md:items-start">
           <motion.h1 className="w-fit font-bold text-4xl md:text-5xl mb-20">
             소개
           </motion.h1>
@@ -164,14 +164,18 @@ const Page = async () => {
                 type: "tween",
                 duration: 1,
               }}
+              viewport={{
+                once: true,
+                amount: 0.5,
+              }}
               className="p-8 bg-gray-200 rounded-xl shadow-lg flex flex-col md:flex-row justify-between gap-8"
             >
               <div className="w-full md:w-1/2 flex flex-col items-center">
-                <p className="text-4xl text-center mb-8 font-bold text-gray-800">
+                <p className="w-full text-4xl text-center md:text-left mb-8 font-bold text-gray-800">
                   PDF 출력가능
                 </p>
 
-                <p className="text-gray-500 font-bold text-2xl text-center leading-12">
+                <p className="w-full text-gray-500 text-2xl text-center md:text-left leading-8">
                   PDF 버튼 클릭 후 링크를 <br /> web to pdf서비스에 입력해주세요
                 </p>
               </div>
@@ -197,14 +201,18 @@ const Page = async () => {
                 type: "tween",
                 duration: 1,
               }}
+              viewport={{
+                once: true,
+                amount: 0.5,
+              }}
               className="p-8 bg-gray-200 rounded-xl shadow-lg flex flex-col md:flex-row-reverse justify-between gap-8"
             >
               <div className="w-full md:w-1/2 flex flex-col items-center">
-                <p className="text-4xl text-center mb-8 font-bold text-gray-800">
+                <p className="w-full text-4xl text-center md:text-left mb-8 font-bold text-gray-800">
                   어휘 탐색
                 </p>
 
-                <p className="text-gray-500 font-bold text-2xl text-center leading-12">
+                <p className="w-full text-gray-500 text-2xl text-center md:text-left leading-8">
                   원하는 단어를 저장할 수 있습니다
                 </p>
               </div>
@@ -219,7 +227,8 @@ const Page = async () => {
           </div>
         </div>
       </section>
-      <div className="overflow-hidden">
+
+      <div className="overflow-hidden relative my-20">
         <motion.div
           className="flex w-[200%]"
           initial={{
@@ -260,19 +269,38 @@ const Page = async () => {
             </div>
           ))}
         </motion.div>
+
+        <div className="absolute top-0 w-full h-full z-10 rainbow" />
       </div>
+
       <section className="overflow-hidden">
-        <div className="max-w-4xl mx-auto px-2 py-24 flex justify-center items-center">
+        <div className="max-w-6xl mx-auto px-2 py-24 flex justify-center items-center">
           <motion.div
             className="w-fit bg-blue-400 rounded-full overflow-hidden"
             initial={{
+              opacity: 0,
               background: "#38A9FF",
+              y: 20,
+              transition: {
+                duration: 0.1,
+              },
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
             }}
             whileHover={{
               background: "#213BFF",
+              transition: {
+                duration: 0.1,
+              },
             }}
             transition={{
-              duration: 0.1,
+              duration: 1,
+            }}
+            viewport={{
+              once: true,
+              amount: 1,
             }}
           >
             <Link
@@ -284,8 +312,14 @@ const Page = async () => {
           </motion.div>
         </div>
       </section>
+
       <footer className="overflow-hidden bg-blue-300 p-4 flex justify-center">
-        https://github.com/kkukileon305/myvocalist
+        <Link
+          href={"https://github.com/kkukileon305/myvocalist"}
+          target={"_blank"}
+        >
+          GitHub
+        </Link>
       </footer>
     </>
   );
