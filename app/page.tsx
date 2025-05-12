@@ -60,6 +60,13 @@ const Page = async () => {
           </Link>
 
           <Link
+            href="/news"
+            className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full font-extrabold"
+          >
+            新聞
+          </Link>
+
+          <Link
             href="/list"
             className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full"
           >
