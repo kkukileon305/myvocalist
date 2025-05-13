@@ -27,10 +27,10 @@ const Page = async () => {
           </Link>
 
           <Link
-            href="/mywords"
+            href="/cards"
             className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full"
           >
-            我的詞彙
+            卡片
           </Link>
         </div>
       </header>
