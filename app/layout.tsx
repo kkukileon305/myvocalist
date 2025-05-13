@@ -7,13 +7,8 @@ const font = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "함께 배우는 대만중국어 - 臺灣的正體中文",
-  description: "대만식 전통 중국어를 배워보아요",
-  openGraph: {
-    title: "함께 배우는 대만중국어 - 臺灣的正體中文",
-    description: "대만식 전통 중국어를 배워보아요",
-    url: "https://myvocalist.vercel.app/",
-  },
+  title: "개인학습용",
+  description: "개인학습용",
   verification: {
     google: "0P9x1zDK3FoskGyNI1lehkUYmIlsMwxMQf06chuxTuQ",
   },
