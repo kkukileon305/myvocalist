@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useScrollUp } from "@/utils/hooks";
 
-type NavigatorProps = { page: number };
+type NavigatorProps = { page: number; size: number };
 
-const Navigator = ({ page }: NavigatorProps) => {
+const Navigator = ({ page, size }: NavigatorProps) => {
   const [modal, setModal] = useState(false);
   const [value, setValue] = useState("");
   const router = useRouter();
@@ -29,13 +29,14 @@ const Navigator = ({ page }: NavigatorProps) => {
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    router.push(`/grammar/${value}`);
+    router.push(`/grammar/${value}?size=${size}`);
     setModal(false);
   };
 
   const handleCopy = async () => {
-    const path = window.location.href;
-    await navigator.clipboard.writeText(path + "/pdf");
+    const url = new URL(window.location.href);
+    const pathWithoutSearch = url.origin + url.pathname;
+    await navigator.clipboard.writeText(pathWithoutSearch + "/pdf");
   };
 
   return (
@@ -78,7 +79,7 @@ const Navigator = ({ page }: NavigatorProps) => {
 
         {Number(page) - 1 > 0 && (
           <Link
-            href={`/grammar/${Number(page) - 1}`}
+            href={`/grammar/${Number(page) - 1}?size=${size}`}
             className="block bg-white p-2 rounded-full"
           >
             {"<"}
@@ -86,7 +87,7 @@ const Navigator = ({ page }: NavigatorProps) => {
         )}
 
         <Link
-          href={`/grammar/${Number(page) + 1}`}
+          href={`/grammar/${Number(page) + 1}?size=${size}`}
           className="block bg-white p-2 rounded-full"
         >
           {">"}

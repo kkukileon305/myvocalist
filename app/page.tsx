@@ -1,40 +1,37 @@
-import Link from "next/link";
+"use client";
 
-const Page = async () => {
+import Link from "next/link";
+import { useState } from "react";
+
+const Page = () => {
+  const [size, setSize] = useState(30);
+
   return (
     <>
-      <header className="sticky top-0 border-b border-gray-300 bg-white z-30">
-        <div className="max-w-6xl mx-auto p-4 flex justify-center gap-2 text-white">
-          <Link
-            href="/grammar/1"
-            className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full font-extrabold"
-          >
-            文法
-          </Link>
+      <div className="flex flex-col justify-center items-center h-dvh gap-4">
+        <p>請輸入頁面尺寸</p>
 
-          <Link
-            href="/news"
-            className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full font-extrabold"
-          >
-            新聞
-          </Link>
+        <input
+          type="number"
+          className="focus:outline-none border p-2 rounded"
+          onChange={(event) =>
+            setSize(
+              isNaN(event.currentTarget.valueAsNumber)
+                ? 0
+                : event.currentTarget.valueAsNumber,
+            )
+          }
+          placeholder="請輸入頁面尺寸"
+          value={size}
+        />
 
-          <Link
-            href="/list"
-            className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full"
-          >
-            辭典
-          </Link>
-
-          <Link
-            href="/cards"
-            className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full"
-          >
-            卡片
-          </Link>
-        </div>
-      </header>
-      <div className="flex justify-center items-center">個人用PAGE</div>
+        <Link
+          href={`/grammar/1?size=${size > 0 ? size : 30}`}
+          className="w-24 text-center block shadow bg-blue-300 hover:bg-[#213BFF] transition p-2 rounded-full font-extrabold"
+        >
+          進入
+        </Link>
+      </div>
     </>
   );
 };
